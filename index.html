@@ -285,11 +285,10 @@
                 $.ajax({
                     url: scriptURL,
                     method: 'POST',
-                    contentType: 'application/json',
-                    data: JSON.stringify({
+                    data: {
                         item: item,
                         claimer: nome.trim()
-                    }),
+                    },
                     success: function() {
                         location.reload();
                     },
