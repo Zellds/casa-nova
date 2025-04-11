@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Presentes - Chá de Casa Nova</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin-top: 2rem;
+        }
+
+        .group-title {
+            font-size: 1.5rem;
+            margin-top: 1.5rem;
+            text-align: center;
+            color: #007bff;
+        }
+
+        .subgroup-title {
+            font-size: 1.25rem;
+            margin-top: 1rem;
+            color: #28a745;
+        }
+
+        .claimed {
+            text-decoration: line-through;
+            color: gray;
+        }
+
+        .claimer {
+            font-size: 0.9rem;
+            color: green;
+        }
+
+        .card-body {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .card-item {
+            width: 23%;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .card-item input {
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .card-item {
+                width: 48%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .card-item {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-center mb-4">🎁 Lista de Presentes - Chá de Casa Nova</h1>
+
+        <!-- Sala -->
+        <div class="group">
+            <h2 class="group-title">🛋️ Sala</h2>
+            <div class="subgroup">
+                <h3 class="subgroup-title">Essenciais</h3>
+                <div class="card">
+                    <div class="card-body">
+                        <div id="sala-essenciais" class="d-flex flex-wrap gap-3"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="subgroup">
+                <h3 class="subgroup-title">Extras úteis</h3>
+                <div class="card">
+                    <div class="card-body">
+                        <div id="sala-extras" class="d-flex flex-wrap gap-3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cozinha -->
+        <div class="group">
+            <h2 class="group-title">🍽️ Cozinha</h2>
+            <div class="subgroup">
+                <h3 class="subgroup-title">Essenciais</h3>
+                <div class="card">
+                    <div class="card-body">
+                        <div id="cozinha-essenciais" class="d-flex flex-wrap gap-3"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="subgroup">
+                <h3 class="subgroup-title">Extras úteis</h3>
+                <div class="card">
+                    <div class="card-body">
+                        <div id="cozinha-extras" class="d-flex flex-wrap gap-3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Área de Serviço -->
+        <div class="group">
+            <h2 class="group-title">🍳 Área de Serviço</h2>
+            <div class="subgroup">
+                <h3 class="subgroup-title">Essenciais</h3>
+                <div class="card">
+                    <div class="card-body">
+                        <div id="area-servico-essenciais" class="d-flex flex-wrap gap-3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Banheiro -->
+        <div class="group">
+            <h2 class="group-title">🚽 Banheiro</h2>
+            <div class="subgroup">
+                <h3 class="subgroup-title">Essenciais</h3>
+                <div class="card">
+                    <div class="card-body">
+                        <div id="banheiro-essenciais" class="d-flex flex-wrap gap-3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quarto -->
+        <div class="group">
+            <h2 class="group-title">🛏️ Quarto</h2>
+            <div class="subgroup">
+                <h3 class="subgroup-title">Possíveis adições</h3>
+                <div class="card">
+                    <div class="card-body">
+                        <div id="quarto-adicoes" class="d-flex flex-wrap gap-3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        function sanitizeId(str) {
+            return 'input-' + str.replace(/\s+/g, '-').replace(/[^a-zA-Z0-9\-]/g, '');
+        }
+
+        const presentes = {
+            'Sofá ou poltrona': 'sala-essenciais',
+            'Mesa de centro': 'sala-essenciais',
+            'Rack ou estante para TV': 'sala-essenciais',
+            'TV (se ainda não tiver)': 'sala-essenciais',
+            'Ventilador ou ar-condicionado': 'sala-essenciais',
+            'Cortinas/persianas': 'sala-extras',
+            'Tapete': 'sala-extras',
+            'Luminária de chão ou abajur': 'sala-extras',
+            'Quadros ou decoração de parede': 'sala-extras',
+            'Fogão': 'cozinha-essenciais',
+            'Geladeira': 'cozinha-essenciais',
+            'Micro-ondas': 'cozinha-essenciais',
+            'Panelas (conjunto com tamanhos variados)': 'cozinha-essenciais',
+            'Talheres (garfos, facas, colheres)': 'cozinha-essenciais',
+            'Pratos (rasos, fundos, sobremesa)': 'cozinha-essenciais',
+            'Copos (água, suco, vidro ou acrílico)': 'cozinha-essenciais',
+            'Xícaras de café e chá': 'cozinha-essenciais',
+            'Escorredor de louça': 'cozinha-essenciais',
+            'Pano de prato': 'cozinha-essenciais',
+            'Potes plásticos ou de vidro': 'cozinha-essenciais',
+            'Conjunto de facas de cozinha': 'cozinha-essenciais',
+            'Tábua de cortar': 'cozinha-essenciais',
+            'Concha, espátula, colher de pau': 'cozinha-essenciais',
+            'Abridor de garrafa e lata': 'cozinha-essenciais',
+            'Lixeira': 'cozinha-essenciais',
+            'Balde e pano de chão': 'cozinha-essenciais',
+            'Liquidificador': 'cozinha-extras',
+            'Sanduicheira': 'cozinha-extras',
+            'Porta-temperos': 'cozinha-extras',
+            'Jarra': 'cozinha-extras',
+            'Fruteira': 'cozinha-extras',
+            'Toalha de mesa': 'cozinha-extras',
+            'Máquina de lavar roupa': 'area-servico-essenciais',
+            'Varal (de chão ou de teto)': 'area-servico-essenciais',
+            'Pregadores de roupa': 'area-servico-essenciais',
+            'Cestos para roupa suja': 'area-servico-essenciais',
+            'Baldes': 'area-servico-essenciais',
+            'Rodo': 'area-servico-essenciais',
+            'Vassoura': 'area-servico-essenciais',
+            'Pá de lixo': 'area-servico-essenciais',
+            'Panos multiuso': 'area-servico-essenciais',
+            'Sabão, amaciante, desinfetante': 'area-servico-essenciais',
+            'Toalhas de banho e rosto': 'banheiro-essenciais',
+            'Tapete antiderrapante': 'banheiro-essenciais',
+            'Cortina para box (se necessário)': 'banheiro-essenciais',
+            'Lixeira': 'banheiro-essenciais',
+            'Escova de vaso sanitário': 'banheiro-essenciais',
+            'Porta-sabonete ou saboneteira': 'banheiro-essenciais',
+            'Porta-escovas de dente': 'banheiro-essenciais',
+            'Espelho': 'banheiro-essenciais',
+            'Sabonetes, shampoo, condicionador': 'banheiro-essenciais',
+            'Papel higiênico': 'banheiro-essenciais',
+            'Criado-mudo': 'quarto-adicoes',
+            'Abajur': 'quarto-adicoes',
+            'Cabides': 'quarto-adicoes',
+            'Organizador de gavetas ou armário': 'quarto-adicoes',
+            'Espelho de corpo inteiro': 'quarto-adicoes',
+            'Cortina ou persiana': 'quarto-adicoes',
+            'Roupa de cama extra': 'quarto-adicoes',
+            'Cobertor ou edredom': 'quarto-adicoes'
+        };
+
+        var storedData = {};
+
+        function renderList() {
+            $.each(presentes, function(item, containerId) {
+                const claimed = storedData[item]?.claimer;
+                let $card = $('<div>').addClass('card-item');
+                const safeId = sanitizeId(item);
+
+                if (claimed) {
+                    $card.html(`
+            <div class="card">
+              <div class="card-body p-2">
+                <strong class="claimed">${item}</strong>
+                <div class="claimer">Por: ${claimed}</div>
+              </div>
+            </div>
+          `);
+                } else {
+                    $card.html(`
+            <div class="card">
+              <div class="card-body p-2">
+                <strong>${item}</strong>
+                <input type="text" id="${safeId}" class="form-control form-control-sm my-1" placeholder="Seu nome">
+                <button class="btn btn-sm btn-success w-100 reservar-btn" data-item="${item}">Reservar</button>
+              </div>
+            </div>
+          `);
+                }
+
+                $(`#${containerId}`).append($card);
+            });
+        }
+
+        $(document).ready(function() {
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbypehX_Xdt1tvIR_u2GGrWve7mHkx_lQi23pzd3lfnxYeId5E78XfyYmTaxxS9OdbfXYA/exec';
+
+            $.ajax({
+                url: scriptURL,
+                method: 'GET',
+                dataType: 'json'
+            }).done(function(data) {
+                storedData = data;
+                renderList();
+            }).fail(function() {
+                renderList();
+            });
+
+            $(document).on('click', '.reservar-btn', function() {
+                const item = $(this).data('item');
+                const safeId = sanitizeId(item);
+                const nome = $(`#${safeId}`).val();
+                if (!nome || !nome.trim()) return;
+
+                storedData[item] = {
+                    claimer: nome.trim()
+                };
+
+                $.ajax({
+                    url: scriptURL,
+                    method: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                        item: item,
+                        claimer: nome.trim()
+                    }),
+                    success: function() {
+                        location.reload();
+                    },
+                    error: function() {
+                        alert('Erro ao salvar no Google Sheets');
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>
