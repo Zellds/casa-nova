@@ -1,326 +1,340 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Lista de Presentes - Chá de Casa Nova</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-        <style>
-            body {
-                background-color: #f8f9fa;
-            }
-            .container {
-                max-width: 1000px;
-                margin-top: 2rem;
-            }
-            .group-title {
-                font-size: 1.5rem;
-                margin-top: 1.5rem;
-                text-align: center;
-                color: #007bff;
-            }
-            .subgroup-title {
-                font-size: 1.25rem;
-                margin-top: 1rem;
-                color: #28a745;
-            }
-            .claimed {
-                text-decoration: line-through;
-                color: gray;
-            }
-            .claimer {
-                font-size: 0.9rem;
-                color: green;
-            }
-            .card-body {
-                display: flex;
-                flex-wrap: wrap;
-            }
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Presentes - Chá de Casa Nova</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin-top: 2rem;
+        }
+
+        .group-title {
+            font-size: 1.5rem;
+            margin-top: 1.5rem;
+            text-align: center;
+            color: #007bff;
+        }
+
+        .subgroup-title {
+            font-size: 1.25rem;
+            margin-top: 1rem;
+            color: #28a745;
+        }
+
+        .claimed {
+            text-decoration: line-through;
+            color: gray;
+        }
+
+        .claimer {
+            font-size: 0.9rem;
+            color: green;
+        }
+
+        .card-body {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .card-item {
+            width: 23%;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .card-item input {
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
             .card-item {
-                width: 23%;
-                margin-bottom: 1rem;
-                text-align: center;
+                width: 48%;
             }
-            .card-item input {
+        }
+
+        @media (max-width: 576px) {
+            .card-item {
                 width: 100%;
             }
-            @media (max-width: 768px) {
-                .card-item {
-                    width: 48%;
-                }
-            }
-            @media (max-width: 576px) {
-                .card-item {
-                    width: 100%;
-                }
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <h1 class="text-center mb-4">🎁 Lista de Presentes - Chá de Casa Nova</h1>
-            
-            <!-- Sala -->
-            <div class="group">
-                <h2 class="group-title">🛋️ Sala</h2>
-                <div class="subgroup">
-                    <h3 class="subgroup-title">Essenciais</h3>
-                    <div class="card">
-                        <div class="card-body">
-                            <div id="sala-essenciais" class="d-flex flex-wrap gap-3"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="subgroup">
-                    <h3 class="subgroup-title">Extras úteis</h3>
-                    <div class="card">
-                        <div class="card-body">
-                            <div id="sala-extras" class="d-flex flex-wrap gap-3"></div>
-                        </div>
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-center mb-4">🎁 Lista de Presentes - Chá de Casa Nova</h1>
+
+        <!-- Sala -->
+        <div class="group">
+            <h2 class="group-title">🛋️ Sala</h2>
+            <div class="subgroup">
+                <h3 class="subgroup-title">Essenciais</h3>
+                <div class="card">
+                    <div class="card-body">
+                        <div id="sala-essenciais" class="d-flex flex-wrap gap-3"></div>
                     </div>
                 </div>
             </div>
-            
-            <!-- Cozinha -->
-            <div class="group">
-                <h2 class="group-title">🍽️ Cozinha</h2>
-                <div class="subgroup">
-                    <h3 class="subgroup-title">Essenciais</h3>
-                    <div class="card">
-                        <div class="card-body">
-                            <div id="cozinha-essenciais" class="d-flex flex-wrap gap-3"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="subgroup">
-                    <h3 class="subgroup-title">Extras úteis</h3>
-                    <div class="card">
-                        <div class="card-body">
-                            <div id="cozinha-extras" class="d-flex flex-wrap gap-3"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Área de Serviço -->
-            <div class="group">
-                <h2 class="group-title">🍳 Área de Serviço</h2>
-                <div class="subgroup">
-                    <h3 class="subgroup-title">Essenciais</h3>
-                    <div class="card">
-                        <div class="card-body">
-                            <div id="area-servico-essenciais" class="d-flex flex-wrap gap-3"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Banheiro -->
-            <div class="group">
-                <h2 class="group-title">🚽 Banheiro</h2>
-                <div class="subgroup">
-                    <h3 class="subgroup-title">Essenciais</h3>
-                    <div class="card">
-                        <div class="card-body">
-                            <div id="banheiro-essenciais" class="d-flex flex-wrap gap-3"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Quarto -->
-            <div class="group">
-                <h2 class="group-title">🛏️ Quarto</h2>
-                <div class="subgroup">
-                    <h3 class="subgroup-title">Possíveis adições</h3>
-                    <div class="card">
-                        <div class="card-body">
-                            <div id="quarto-adicoes" class="d-flex flex-wrap gap-3"></div>
-                        </div>
+            <div class="subgroup">
+                <h3 class="subgroup-title">Extras úteis</h3>
+                <div class="card">
+                    <div class="card-body">
+                        <div id="sala-extras" class="d-flex flex-wrap gap-3"></div>
                     </div>
                 </div>
             </div>
         </div>
-        
-        <!-- jQuery e Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-        <script>
-            // Função para sanitizar o nome do item e criar um ID único (remove acentos e caracteres inválidos)
-            function sanitizeId(str) {
-                return 'input-' + str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, '-').replace(/[^a-zA-Z0-9\-]/g, '');
-            }
 
-            // Lista de presentes, com os itens mapeados para a respectiva área (container)
-            const presentes = {
-                'Sofá ou poltrona': 'sala-essenciais',
-                'Mesa de centro': 'sala-essenciais',
-                'Rack ou estante para TV': 'sala-essenciais',
-                'TV (se ainda não tiver)': 'sala-essenciais',
-                'Ventilador ou ar-condicionado': 'sala-essenciais',
-                'Cortinas/persianas': 'sala-extras',
-                'Tapete': 'sala-extras',
-                'Luminária de chão ou abajur': 'sala-extras',
-                'Quadros ou decoração de parede': 'sala-extras',
-                'Fogão': 'cozinha-essenciais',
-                'Geladeira': 'cozinha-essenciais',
-                'Micro-ondas': 'cozinha-essenciais',
-                'Panelas (conjunto com tamanhos variados)': 'cozinha-essenciais',
-                'Talheres (garfos, facas, colheres)': 'cozinha-essenciais',
-                'Pratos (rasos, fundos, sobremesa)': 'cozinha-essenciais',
-                'Copos (água, suco, vidro ou acrílico)': 'cozinha-essenciais',
-                'Xícaras de café e chá': 'cozinha-essenciais',
-                'Escorredor de louça': 'cozinha-essenciais',
-                'Pano de prato': 'cozinha-essenciais',
-                'Potes plásticos ou de vidro': 'cozinha-essenciais',
-                'Conjunto de facas de cozinha': 'cozinha-essenciais',
-                'Tábua de cortar': 'cozinha-essenciais',
-                'Concha, espátula, colher de pau': 'cozinha-essenciais',
-                'Abridor de garrafa e lata': 'cozinha-essenciais',
-                'Lixeira': 'cozinha-essenciais',
-                'Balde e pano de chão': 'cozinha-essenciais',
-                'Liquidificador': 'cozinha-extras',
-                'Sanduicheira': 'cozinha-extras',
-                'Porta-temperos': 'cozinha-extras',
-                'Jarra': 'cozinha-extras',
-                'Fruteira': 'cozinha-extras',
-                'Toalha de mesa': 'cozinha-extras',
-                'Máquina de lavar roupa': 'area-servico-essenciais',
-                'Varal (de chão ou de teto)': 'area-servico-essenciais',
-                'Pregadores de roupa': 'area-servico-essenciais',
-                'Cestos para roupa suja': 'area-servico-essenciais',
-                'Baldes': 'area-servico-essenciais',
-                'Rodo': 'area-servico-essenciais',
-                'Vassoura': 'area-servico-essenciais',
-                'Pá de lixo': 'area-servico-essenciais',
-                'Panos multiuso': 'area-servico-essenciais',
-                'Sabão, amaciante, desinfetante': 'area-servico-essenciais',
-                'Toalhas de banho e rosto': 'banheiro-essenciais',
-                'Tapete antiderrapante': 'banheiro-essenciais',
-                'Cortina para box (se necessário)': 'banheiro-essenciais',
-                'Lixeira': 'banheiro-essenciais',
-                'Escova de vaso sanitário': 'banheiro-essenciais',
-                'Porta-sabonete ou saboneteira': 'banheiro-essenciais',
-                'Porta-escovas de dente': 'banheiro-essenciais',
-                'Espelho': 'banheiro-essenciais',
-                'Sabonetes, shampoo, condicionador': 'banheiro-essenciais',
-                'Papel higiênico': 'banheiro-essenciais',
-                'Criado-mudo': 'quarto-adicoes',
-                'Abajur': 'quarto-adicoes',
-                'Cabides': 'quarto-adicoes',
-                'Organizador de gavetas ou armário': 'quarto-adicoes',
-                'Espelho de corpo inteiro': 'quarto-adicoes',
-                'Cortina ou persiana': 'quarto-adicoes',
-                'Roupa de cama extra': 'quarto-adicoes',
-                'Cobertor ou edredom': 'quarto-adicoes'
-            };
+        <!-- Cozinha -->
+        <div class="group">
+            <h2 class="group-title">🍽️ Cozinha</h2>
+            <div class="subgroup">
+                <h3 class="subgroup-title">Essenciais</h3>
+                <div class="card">
+                    <div class="card-body">
+                        <div id="cozinha-essenciais" class="d-flex flex-wrap gap-3"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="subgroup">
+                <h3 class="subgroup-title">Extras úteis</h3>
+                <div class="card">
+                    <div class="card-body">
+                        <div id="cozinha-extras" class="d-flex flex-wrap gap-3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-            // Objeto que armazenará os dados dos itens reservados
-            var storedData = {};
+        <!-- Área de Serviço -->
+        <div class="group">
+            <h2 class="group-title">🍳 Área de Serviço</h2>
+            <div class="subgroup">
+                <h3 class="subgroup-title">Essenciais</h3>
+                <div class="card">
+                    <div class="card-body">
+                        <div id="area-servico-essenciais" class="d-flex flex-wrap gap-3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-            // Variável que guarda o SHA do arquivo no GitHub para atualizações futuras
-            var fileSha = null;
+        <!-- Banheiro -->
+        <div class="group">
+            <h2 class="group-title">🚽 Banheiro</h2>
+            <div class="subgroup">
+                <h3 class="subgroup-title">Essenciais</h3>
+                <div class="card">
+                    <div class="card-body">
+                        <div id="banheiro-essenciais" class="d-flex flex-wrap gap-3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-            // Renderiza a lista de presentes no HTML, verificando se cada item já foi reservado
-            function renderList() {
-                $.each(presentes, function(item, containerId) {
-                    const claimed = storedData[item]?.claimer;
-                    let $card = $('<div>').addClass('card-item');
-                    const safeId = sanitizeId(item);
+        <!-- Quarto -->
+        <div class="group">
+            <h2 class="group-title">🛏️ Quarto</h2>
+            <div class="subgroup">
+                <h3 class="subgroup-title">Possíveis adições</h3>
+                <div class="card">
+                    <div class="card-body">
+                        <div id="quarto-adicoes" class="d-flex flex-wrap gap-3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-                    if (claimed) {
-                        $card.html(`
-                            <div class="card">
-                                <div class="card-body p-2">
-                                    <strong class="claimed">${item}</strong>
-                                    <div class="claimer">Por: ${claimed}</div>
-                                </div>
-                            </div>
-                        `);
-                    } else {
-                        $card.html(`
-                            <div class="card">
-                                <div class="card-body p-2">
-                                    <strong>${item}</strong>
-                                    <input type="text" class="form-control mt-2" placeholder="Seu nome" id="${safeId}">
-                                    <button class="btn btn-success btn-sm mt-2" onclick="marcarPresente('${item}', '${safeId}')">Reservar</button>
-                                </div>
-                            </div>
-                        `);
-                    }
-                    $('#' + containerId).append($card);
-                });
-            }
+    <!-- jQuery e Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function toSafeId(str) {
+            return str.normalize("NFD")
+                .replace(/[\u0300-\u036f]/g, "")
+                .replace(/\s+/g, "_")
+                .replace(/[^a-zA-Z0-9_]/g, "")
+                .toLowerCase();
+        }
 
-            // Carrega os dados existentes do GitHub
-            function carregarDadosJson() {
-                const githubAPI = 'https://api.github.com/repos/Zellds/casa-nova/contents/dados.json';
-                const githubToken = 'github_pat_11AZ' + 'JS5WA0vXbL3gdYPv2n_ZibufdIx' + 'M5YIJrP9A4FBNTRqwWyk30MSALzG0vWjI' + '2FYBMZXSYT3gnSTeSB';
-                $.ajax({
-                    url: githubAPI,
-                    method: 'GET',
-                    dataType: 'json',
-                    headers: {
-                        'Authorization': 'token ' + githubToken
-                    },
-                    success: function(data) {
-                        storedData = JSON.parse(atob(data.content));
-                        fileSha = data.sha;  // Armazena o SHA para atualizações futuras
-                        renderList();
-                    },
-                    error: function() {
-                        // Caso o arquivo não exista ou ocorra erro, inicia com objeto vazio
-                        storedData = {};
-                        renderList();
-                    }
-                });
-            }
+        const presentes = {
+            'Sofá ou poltrona': 'sala-essenciais',
+            'Mesa de centro': 'sala-essenciais',
+            'Rack ou estante para TV': 'sala-essenciais',
+            'TV (se ainda não tiver)': 'sala-essenciais',
+            'Ventilador ou ar-condicionado': 'sala-essenciais',
+            'Cortinas/persianas': 'sala-extras',
+            'Tapete': 'sala-extras',
+            'Luminária de chão ou abajur': 'sala-extras',
+            'Quadros ou decoração de parede': 'sala-extras',
+            'Fogão': 'cozinha-essenciais',
+            'Geladeira': 'cozinha-essenciais',
+            'Micro-ondas': 'cozinha-essenciais',
+            'Panelas (conjunto com tamanhos variados)': 'cozinha-essenciais',
+            'Talheres (garfos, facas, colheres)': 'cozinha-essenciais',
+            'Pratos (rasos, fundos, sobremesa)': 'cozinha-essenciais',
+            'Copos (água, suco, vidro ou acrílico)': 'cozinha-essenciais',
+            'Xícaras de café e chá': 'cozinha-essenciais',
+            'Escorredor de louça': 'cozinha-essenciais',
+            'Pano de prato': 'cozinha-essenciais',
+            'Potes plásticos ou de vidro': 'cozinha-essenciais',
+            'Conjunto de facas de cozinha': 'cozinha-essenciais',
+            'Tábua de cortar': 'cozinha-essenciais',
+            'Concha, espátula, colher de pau': 'cozinha-essenciais',
+            'Abridor de garrafa e lata': 'cozinha-essenciais',
+            'Lixeira': 'cozinha-essenciais',
+            'Balde e pano de chão': 'cozinha-essenciais',
+            'Liquidificador': 'cozinha-extras',
+            'Sanduicheira': 'cozinha-extras',
+            'Porta-temperos': 'cozinha-extras',
+            'Jarra': 'cozinha-extras',
+            'Fruteira': 'cozinha-extras',
+            'Toalha de mesa': 'cozinha-extras',
+            'Máquina de lavar roupa': 'area-servico-essenciais',
+            'Varal (de chão ou de teto)': 'area-servico-essenciais',
+            'Pregadores de roupa': 'area-servico-essenciais',
+            'Cestos para roupa suja': 'area-servico-essenciais',
+            'Baldes': 'area-servico-essenciais',
+            'Rodo': 'area-servico-essenciais',
+            'Vassoura': 'area-servico-essenciais',
+            'Pá de lixo': 'area-servico-essenciais',
+            'Panos multiuso': 'area-servico-essenciais',
+            'Sabão, amaciante, desinfetante': 'area-servico-essenciais',
+            'Toalhas de banho e rosto': 'banheiro-essenciais',
+            'Tapete antiderrapante': 'banheiro-essenciais',
+            'Cortina para box (se necessário)': 'banheiro-essenciais',
+            'Lixeira': 'banheiro-essenciais',
+            'Escova de vaso sanitário': 'banheiro-essenciais',
+            'Porta-sabonete ou saboneteira': 'banheiro-essenciais',
+            'Porta-escovas de dente': 'banheiro-essenciais',
+            'Espelho': 'banheiro-essenciais',
+            'Sabonetes, shampoo, condicionador': 'banheiro-essenciais',
+            'Papel higiênico': 'banheiro-essenciais',
+            'Criado-mudo': 'quarto-adicoes',
+            'Abajur': 'quarto-adicoes',
+            'Cabides': 'quarto-adicoes',
+            'Organizador de gavetas ou armário': 'quarto-adicoes',
+            'Espelho de corpo inteiro': 'quarto-adicoes',
+            'Cortina ou persiana': 'quarto-adicoes',
+            'Roupa de cama extra': 'quarto-adicoes',
+            'Cobertor ou edredom': 'quarto-adicoes'
+        };
 
-            // Salva os dados atualizados no GitHub (substituindo o arquivo existente)
-            function salvarDadosJson() {
-                const githubAPI = 'https://api.github.com/repos/Zellds/casa-nova/contents/dados.json';
-                const githubToken = 'github_pat_11AZ' + 'JS5WA0vXbL3gdYPv2n_ZibufdIx' + 'M5YIJrP9A4FBNTRqwWyk30MSALzG0vWjI' + '2FYBMZXSYT3gnSTeSB';
-                const contentEncoded = btoa(JSON.stringify(storedData, null, 2));
-                $.ajax({
-                    url: githubAPI,
-                    method: 'PUT',
-                    contentType: 'application/json',
-                    headers: {
-                        'Authorization': 'token ' + githubToken
-                    },
-                    data: JSON.stringify({
-                        message: "Atualizando lista de presentes",
-                        committer: {
-                            name: "Gabriel Medeiros",
-                            email: "your-email@example.com"
-                        },
-                        content: contentEncoded,
-                        sha: fileSha  // Necessário para atualizar o arquivo existente
-                    }),
-                    success: function() {
-                        location.reload(); // Recarrega a página para refletir a atualização
-                    },
-                    error: function(err) {
-                        alert('Erro ao salvar no GitHub: ' + JSON.stringify(err));
-                    }
-                });
-            }
+        var storedData = {};
+        var fileSha = null;
 
-            // Função chamada quando o usuário clica em "Reservar". Registra o nome e salva os dados.
-            function marcarPresente(item, inputId) {
-                const nome = $('#' + inputId).val().trim();
-                if (!nome) {
-                    alert("Por favor, digite seu nome.");
-                    return;
+        function renderList() {
+            $.each(presentes, function(label, containerId) {
+                const safeId = toSafeId(label);
+                const claimed = storedData[safeId]?.claimer;
+                let $card = $('<div>').addClass('card-item');
+
+                if (claimed) {
+                    $card.html(`
+                    <div class="card">
+                        <div class="card-body p-2">
+                            <strong class="claimed">${label}</strong>
+                            <div class="claimer">Por: ${claimed}</div>
+                        </div>
+                    </div>
+                `);
+                } else {
+                    $card.html(`
+                    <div class="card">
+                        <div class="card-body p-2">
+                            <strong>${label}</strong>
+                            <input type="text" class="form-control mt-2" placeholder="Seu nome" id="${safeId}">
+                            <button class="btn btn-success btn-sm mt-2" onclick="marcarPresente('${safeId}')">Reservar</button>
+                        </div>
+                    </div>
+                `);
                 }
-                storedData[item] = { claimer: nome };
-                salvarDadosJson();
-            }
-
-            // Ao carregar a página, busca os dados do GitHub e renderiza a lista de presentes
-            $(document).ready(function() {
-                carregarDadosJson();
+                $('#' + containerId).append($card);
             });
-        </script>
-    </body>
+        }
+
+        function carregarDadosJson() {
+            const githubAPI = 'https://api.github.com/repos/Zellds/casa-nova/contents/dados.json';
+            const g = 'github_pat_11AZ' + 'JS5WA0vXbL3gdYPv2n_ZibufdIx' + 'M5YIJrP9A4FBNTRqwWyk30MSALzG0vWjI' + '2FYBMZXSYT3gnSTeSB';
+            $.ajax({
+                url: githubAPI,
+                method: 'GET',
+                dataType: 'json',
+                headers: {
+                    'Authorization': 'token ' + g
+                },
+                success: function(data) {
+                    storedData = JSON.parse(atob(data.content));
+                    fileSha = data.sha;
+                    renderList();
+                },
+                error: function() {
+                    storedData = {};
+                    renderList();
+                }
+            });
+        }
+
+        function encodeUtf8Base64(str) {
+            return btoa(unescape(encodeURIComponent(str)));
+        }
+
+        function salvarDadosJson() {
+            const githubAPI = 'https://api.github.com/repos/Zellds/casa-nova/contents/dados.json';
+            const g = 'github_pat_11AZ' + 'JS5WA0vXbL3gdYPv2n_ZibufdIx' + 'M5YIJrP9A4FBNTRqwWyk30MSALzG0vWjI' + '2FYBMZXSYT3gnSTeSB';
+            const jsonStr = JSON.stringify(storedData, null, 2);
+            const contentEncoded = encodeUtf8Base64(jsonStr);
+            $.ajax({
+                url: githubAPI,
+                method: 'PUT',
+                contentType: 'application/json',
+                headers: {
+                    'Authorization': 'token ' + g
+                },
+                data: JSON.stringify({
+                    message: "Atualizando lista de presentes",
+                    committer: {
+                        name: "Gabriel Medeiros",
+                        email: "your-email@example.com"
+                    },
+                    content: contentEncoded,
+                    sha: fileSha
+                }),
+                success: function() {
+                    location.reload();
+                },
+                error: function(err) {
+                    alert('Erro ao salvar no GitHub: ' + JSON.stringify(err));
+                }
+            });
+        }
+
+        function marcarPresente(safeId) {
+            const nome = $('#' + safeId).val().trim();
+            if (!nome) {
+                alert("Por favor, digite seu nome.");
+                return;
+            }
+            storedData[safeId] = {
+                claimer: nome
+            };
+            salvarDadosJson();
+        }
+
+        $(document).ready(function() {
+            carregarDadosJson();
+        });
+    </script>
+
+</body>
+
 </html>
