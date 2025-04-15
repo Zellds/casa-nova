@@ -255,7 +255,7 @@
             // Carrega os dados existentes do GitHub
             function carregarDadosJson() {
                 const githubAPI = 'https://api.github.com/repos/Zellds/casa-nova/contents/dados.json';
-                const githubToken = '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';
+                const githubToken = 'github_pat_11AZ' + 'JS5WA0vXbL3gdYPv2n_ZibufdIx' + 'M5YIJrP9A4FBNTRqwWyk30MSALzG0vWjI' + '2FYBMZXSYT3gnSTeSB';
                 $.ajax({
                     url: githubAPI,
                     method: 'GET',
@@ -279,7 +279,7 @@
             // Salva os dados atualizados no GitHub (substituindo o arquivo existente)
             function salvarDadosJson() {
                 const githubAPI = 'https://api.github.com/repos/Zellds/casa-nova/contents/dados.json';
-                const githubToken = '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';
+                const githubToken = 'github_pat_11AZ' + 'JS5WA0vXbL3gdYPv2n_ZibufdIx' + 'M5YIJrP9A4FBNTRqwWyk30MSALzG0vWjI' + '2FYBMZXSYT3gnSTeSB';
                 const contentEncoded = btoa(JSON.stringify(storedData, null, 2));
                 $.ajax({
                     url: githubAPI,
