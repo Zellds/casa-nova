@@ -1,11 +1,14 @@
 {
-  "SofÄÄ ou poltrona": {
+  "SofÃÂÃÂ ou poltrona": {
+    "claimer": "Gabriel"
+  },
+  "SofÃÂ¡ ou poltrona": {
     "claimer": "Gabriel"
   },
   "SofÃ¡ ou poltrona": {
-    "claimer": "Gabriel"
-  },
-  "Sofá ou poltrona": {
     "claimer": "Gabriel 2"
+  },
+  "sofa_ou_poltrona": {
+    "claimer": "Gabriel"
   }
 }
