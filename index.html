@@ -182,7 +182,7 @@
                 dataType: 'json',
                 headers:{'Authorization':'token '+g},
                 success:function(data){
-                    storedData = JSON.parse(atob(data.content));
+                    storedData = JSON.parse(decodeURIComponent(escape(atob(data.content))));
                     fileSha = data.sha;
                     renderList();
                 },
