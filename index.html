@@ -193,7 +193,7 @@
             });
         }
         function encodeUtf8Base64(str) {
-            return btoa(unescape(encodeURIComponent(str)));
+            return btoa(String.fromCharCode(...new TextEncoder().encode(str)));
         }
         function salvarDadosJson() {
             const githubAPI = 'https://api.github.com/repos/Zellds/casa-nova/contents/dados.json';
