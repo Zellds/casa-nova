@@ -104,6 +104,7 @@
                 .replace(/[^a-zA-Z0-9_]/g, "")
                 .toLowerCase();
         }
+
         const presentes = {
             'Panos de prato': 'cozinha',
             'Chaleira Eletrica': 'cozinha',
@@ -123,7 +124,6 @@
             'Formas e assadeiras': 'cozinha',
             'Potes Plasticos / Vidros': 'cozinha',
             'Concha, espátula, colher de pau': 'cozinha',
-            'Escumadeira': 'cozinha',
             'Liquidificador / Multiprocessador': 'cozinha',
             'Conjunto de Porta Temperos': 'cozinha',
             'Jarra': 'cozinha',
@@ -133,33 +133,38 @@
             'Xícaras': 'cozinha',
             'Cafeteira': 'cozinha',
             'Torneira': 'cozinha',
-            'Jogo de panela': 'cozinha',
             'Panela de arroz (Eletrica)': 'cozinha',
             'Máquina de lavar': 'cozinha',
+            'Tigelas': 'cozinha',
+            'Forminhas de silicone (Air Fryer)': 'cozinha',
+            'Porta pratos/copos': 'cozinha',
+            'Talheres de panela/variados': 'cozinha',
+            'Afiador de facas': 'cozinha',
+            'Luvas térmicas de cozinha': 'cozinha',
+            'Torradeira': 'cozinha',
+        
             'Móvel do banheiro': 'banheiro',
-            'Tapete antiaderente para box': 'banheiro',
             'Toalhas de rosto': 'banheiro',
             'Cesto para roupa': 'banheiro',
             'Escova para vaso sanitário': 'banheiro',
             'Tampa do vaso': 'banheiro',
             'Torneira': 'banheiro',
             'Lixeira': 'banheiro',
-            'Porta escova de dentes': 'banheiro',
-            'Suporte para toalha': 'banheiro',
             'Suporte para papel higiênico': 'banheiro',
             'Chuveiro': 'banheiro',
-            'Suporte para sabonete / Shampoo': 'banheiro',
+            'Suporte para Shampoo': 'banheiro',
+        
             'Baldes de plástico': 'area-servico',
             'Pá de lixo': 'area-servico',
             'Pano de chão': 'area-servico',
             'Rodo': 'area-servico',
-            'Pá': 'area-servico',
             'Vassoura': 'area-servico',
             'Varal de Chão': 'area-servico',
-            'Cadeiras de Praia': 'outros',
-            'Cortinas': 'outros',
+        
+            'Cortinas (FOCO)': 'outros',
             'Tapete de boas-vindas': 'outros'
         };
+
         var storedData = {};
         var fileSha = null;
         function renderList() {
