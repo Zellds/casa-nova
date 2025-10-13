@@ -38,7 +38,7 @@
         <h1 class="text-center mb-1">🎁 Lista de Presentes - Chá de Casa Nova</h1>
         <h2 class="text-center mb-4">⬛ Preferencia de cor: Preto ou Branco </h1>
         <div class="group">
-            <h2 class="group-title">🍽️ Cozinha</h2>
+            <h2 class="group-title">⭐ Importantes</h2>
             <div class="table-responsive">
                 <table class="table table-bordered table-hover mb-0">
                     <thead class="table-light">
@@ -47,7 +47,21 @@
                             <th>Reservar Item</th>
                         </tr>
                     </thead>
-                    <tbody id="cozinha-table-body"></tbody>
+                    <tbody id="importantes-table-body"></tbody>
+                </table>
+            </div>
+        </div>
+        <div class="group">
+            <h2 class="group-title">🌸 Área comum</h2>
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover mb-0">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Item</th>
+                            <th>Reservar Item</th>
+                        </tr>
+                    </thead>
+                    <tbody id="area-comum-table-body"></tbody>
                 </table>
             </div>
         </div>
@@ -80,6 +94,20 @@
             </div>
         </div>
         <div class="group">
+            <h2 class="group-title">🍽️ Cozinha</h2>
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover mb-0">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Item</th>
+                            <th>Reservar Item</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cozinha-table-body"></tbody>
+                </table>
+            </div>
+        </div>
+        <div class="group">
             <h2 class="group-title">🛠️ Outros</h2>
             <div class="table-responsive">
                 <table class="table table-bordered table-hover mb-0">
@@ -106,35 +134,23 @@
         }
 
         const presentes = {
-            'Panos de prato': 'cozinha',
-            'Chaleira Eletrica': 'cozinha',
+            'Fruteira': 'cozinha',
             'Panelas': 'cozinha',
             'Pratos': 'cozinha',
-            'Talheres': 'cozinha',
             'Copos': 'cozinha',
             'Escorredor de Louça': 'cozinha',
-            'Conjunto de facas de cozinha': 'cozinha',
-            'Frigideira': 'cozinha',
+            'Porta-talheres': 'cozinha',
             'Tábua de corte (Madeira)': 'cozinha',
             'Porta detergente e esponja': 'cozinha',
-            'Fogão': 'cozinha',
-            'Air Fryer': 'cozinha',
-            'Micro-Ondas': 'cozinha',
-            'Forno': 'cozinha',
             'Formas e assadeiras': 'cozinha',
             'Potes Plasticos / Vidros': 'cozinha',
-            'Concha, espátula, colher de pau': 'cozinha',
-            'Liquidificador / Multiprocessador': 'cozinha',
             'Conjunto de Porta Temperos': 'cozinha',
+            'Rodinho de pia': 'cozinha',
             'Jarra': 'cozinha',
             'Térmica': 'cozinha',
-            'Geladeira': 'cozinha',
-            'Lixeira': 'cozinha',
             'Xícaras': 'cozinha',
             'Cafeteira': 'cozinha',
             'Torneira': 'cozinha',
-            'Panela de arroz (Eletrica)': 'cozinha',
-            'Máquina de lavar': 'cozinha',
             'Tigelas': 'cozinha',
             'Forminhas de silicone (Air Fryer)': 'cozinha',
             'Porta pratos/copos': 'cozinha',
@@ -142,27 +158,28 @@
             'Afiador de facas': 'cozinha',
             'Luvas térmicas de cozinha': 'cozinha',
             'Torradeira': 'cozinha',
+            'Cuia de chimarrão': 'cozinha',
+            'Mateira': 'cozinha',
         
-            'Móvel do banheiro': 'banheiro',
             'Toalhas de rosto': 'banheiro',
-            'Cesto para roupa': 'banheiro',
-            'Escova para vaso sanitário': 'banheiro',
-            'Tampa do vaso': 'banheiro',
             'Torneira': 'banheiro',
-            'Lixeira': 'banheiro',
             'Suporte para papel higiênico': 'banheiro',
-            'Chuveiro': 'banheiro',
-            'Suporte para Shampoo': 'banheiro',
+            'Suporte para Shampoo-Condicionador': 'banheiro',
+            'Suporte sabonete': 'banheiro',
         
             'Baldes de plástico': 'area-servico',
-            'Pá de lixo': 'area-servico',
             'Pano de chão': 'area-servico',
-            'Rodo': 'area-servico',
-            'Vassoura': 'area-servico',
-            'Varal de Chão': 'area-servico',
-        
-            'Cortinas (FOCO)': 'outros',
-            'Tapete de boas-vindas': 'outros'
+            'Escada de Alumínio': 'area-servico',
+            
+            'Varal de Chão': 'importantes',
+            'Cortinas': 'importantes',
+            'Secadora de parede': 'importantes',
+            'Jogo de Panelas': 'importantes',
+
+            'Abajur': 'area-comum',
+            'Jogo de lençol': 'area-comum',
+
+            'Cadeiras de praia': 'outros'
         };
 
         var storedData = {};
